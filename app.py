@@ -10,7 +10,7 @@ from helper import delete_from_chroma
 from ingestion_pipeline_class_based import PDFIngestionPipeline
 from RAG_Phase_5_query_answer_class_based import LocalRAGPipeline
 
-api_key = st.secrets["GOOGLE_API_KEY"]
+api_key = st.secrets["api_key"]
 
 # =========================================================
 # PAGE CONFIG
