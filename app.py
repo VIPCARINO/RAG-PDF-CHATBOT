@@ -10,6 +10,7 @@ from helper import delete_from_chroma
 from ingestion_pipeline_class_based import PDFIngestionPipeline
 from RAG_Phase_5_query_answer_class_based import LocalRAGPipeline
 
+api_key = st.secrets["GOOGLE_API_KEY"]
 
 # =========================================================
 # PAGE CONFIG
@@ -518,6 +519,7 @@ if st.session_state.pdf_ready:
             # LOAD RAG
             # ---------------------------------------------
             rag = LocalRAGPipeline(
+                api_key=api_key,
                 collection_name="pdf_rag",
                 doc_id=st.session_state.doc_id
             )
