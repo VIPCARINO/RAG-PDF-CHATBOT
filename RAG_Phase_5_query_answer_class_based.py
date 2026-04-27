@@ -33,7 +33,7 @@ class LocalRAGPipeline:
         # =====================================================
         self.client = chromadb.PersistentClient(path=db_path)
         self.collection = self.client.get_collection(collection_name)
-        self.clients = genai.Client()
+        self.clients = genai.Client(api_key=st.secrets["api_key"])
 
         # =====================================================
         # TOKENIZER
