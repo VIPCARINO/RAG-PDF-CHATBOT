@@ -108,11 +108,11 @@ class LocalRAGPipeline:
                     Question:
                     {query}
                     """
-        response = self.clients.models.generate_content(
-                    model="gemini-2.5-flash-lite",
-                    contents=prompt
-                )
-        text = str(response.text)
+        response = client.chat.completions.create(
+                        model="llama-3.1-8b-instant",
+                        messages=[{"role": "user", "content": prompt}]
+                    )
+        text = response.choices[0].message.content
 
         queries = [q.strip("- ").strip()
                 for q in text.split("\n")
@@ -277,11 +277,11 @@ class LocalRAGPipeline:
                     {question}
                     """
         try:
-            response = self.clients.models.generate_content(
-                        model="gemini-2.5-flash-lite",
-                        contents=prompt
+            response = client.chat.completions.create(
+                        model="llama-3.1-8b-instant",
+                        messages=[{"role": "user", "content": prompt}]
                     )
-            result = str(response.text)
+            text = response.choices[0].message.content
         except:
             response = "FREE API TOKEN EXCEEDED... "
             return response
