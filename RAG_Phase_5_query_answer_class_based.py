@@ -94,7 +94,7 @@ class LocalRAGPipeline:
 
         #text = response["message"]["content"]
         prompt = f"""
-                    Generate 2 semantic search queries for document retrieval.
+                    Generate 5 semantic search queries for document retrieval.
 
                     Rules:
                     - Focus on likely document terminology
