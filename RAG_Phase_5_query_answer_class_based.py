@@ -108,7 +108,7 @@ class LocalRAGPipeline:
                     Question:
                     {query}
                     """
-        response = clients.chat.completions.create(
+        response = self.clients.chat.completions.create(
                         model="llama-3.1-8b-instant",
                         messages=[{"role": "user", "content": prompt}]
                     )
@@ -277,7 +277,7 @@ class LocalRAGPipeline:
                     {question}
                     """
         try:
-            response = clients.chat.completions.create(
+            response = self.clients.chat.completions.create(
                         model="llama-3.1-8b-instant",
                         messages=[{"role": "user", "content": prompt}]
                     )
