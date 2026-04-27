@@ -11,7 +11,7 @@ class PDFIngestionPipeline:
         self,
         pdf_path,
         model_path="./models/all-MiniLM-L6-v2",
-        db_path="./database/chroma_db",
+        db_path="/tmp/chroma_db",
         collection_name="pdf_rag",
         doc_id=None,
         filename=None,
