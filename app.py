@@ -10,7 +10,13 @@ from helper import delete_from_chroma
 from ingestion_pipeline_class_based import PDFIngestionPipeline
 from RAG_Phase_5_query_answer_class_based import LocalRAGPipeline
 
-api_key = st.secrets["api_key"]
+@st.cache_resource
+def load_rag(doc_id, api_key):
+    return LocalRAGPipeline(
+        collection_name="pdf_rag",
+        doc_id=doc_id,
+        api_key=api_key
+    )
 
 # =========================================================
 # PAGE CONFIG
@@ -518,11 +524,15 @@ if st.session_state.pdf_ready:
             # ---------------------------------------------
             # LOAD RAG
             # ---------------------------------------------
-            rag = LocalRAGPipeline(
-                api_key=api_key,
-                collection_name="pdf_rag",
-                doc_id=st.session_state.doc_id
-            )
+            #rag = LocalRAGPipeline(
+            #    api_key=api_key,
+            #    collection_name="pdf_rag",
+            #    doc_id=st.session_state.doc_id
+            #)
+            rag = load_rag(
+                            st.session_state.doc_id,
+                            st.secrets["api_key"]
+                        )
 
             # ---------------------------------------------
             # ASSISTANT CHAT
