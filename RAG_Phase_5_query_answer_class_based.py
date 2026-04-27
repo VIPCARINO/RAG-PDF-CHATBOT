@@ -276,11 +276,15 @@ class LocalRAGPipeline:
                     QUESTION:
                     {question}
                     """
-        response = self.clients.models.generate_content(
-                    model="gemini-2.5-flash-lite",
-                    contents=prompt
-                )
-        result = str(response.text)
+        try:
+            response = self.clients.models.generate_content(
+                        model="gemini-2.5-flash-lite",
+                        contents=prompt
+                    )
+            result = str(response.text)
+        except:
+            response = "FREE API TOKEN EXCEEDED... "
+            return response
 
         return result
     
