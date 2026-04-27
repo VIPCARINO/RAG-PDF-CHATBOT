@@ -10,6 +10,7 @@ class LocalRAGPipeline:
 
     def __init__(
         self,
+        api_key, 
         embed_model_path="./models/all-MiniLM-L6-v2",
         reranker_path= "./models/cross-encoder/ms-marco-MiniLM-L-6-v2",
         db_path="./database/chroma_db",
@@ -33,7 +34,7 @@ class LocalRAGPipeline:
         # =====================================================
         self.client = chromadb.PersistentClient(path=db_path)
         self.collection = self.client.get_collection(collection_name)
-        self.clients = genai.Client(api_key=st.secrets["api_key"])
+        self.clients = genai.Client(api_key=api_key)
 
         # =====================================================
         # TOKENIZER
