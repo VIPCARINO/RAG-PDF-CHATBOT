@@ -32,7 +32,7 @@ st.title("📚 Chat With Your PDF")
 # =========================================================
 # STORAGE FILES
 # =========================================================
-CHAT_HISTORY_FILE = "./json_files/chat_histories.json"
+CHAT_HISTORY_FILE = "/tmp/chat_histories.json"
 
 
 # =========================================================
