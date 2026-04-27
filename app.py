@@ -15,7 +15,7 @@ def load_rag(doc_id, api_key):
     return LocalRAGPipeline(
         collection_name="pdf_rag",
         doc_id=st.session_state.doc_id,
-        api_key=api_key
+        api_key=st.secrets["api_key"]
     )
 
 # =========================================================
