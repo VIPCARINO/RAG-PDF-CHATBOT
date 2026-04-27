@@ -15,7 +15,7 @@ def load_rag(doc_id, api_key):
     return LocalRAGPipeline(
         collection_name="pdf_rag",
         doc_id=st.session_state.doc_id,
-        api_key=st.secrets["api_key"]
+        api_key=st.api_key
     )
 
 # =========================================================
@@ -558,9 +558,10 @@ if st.session_state.pdf_ready:
                 with st.spinner("Thinking..."):
                     stream = rag.run(prompt)
 
-                    for token in stream:
-                        full_response += token
-                        placeholder.markdown(full_response)
+                    #for token in stream:
+                        #full_response += token
+                        #placeholder.markdown(full_response)
+                    placeholder.markdown(stream) ## comment when running locally
 
         # =================================================
         # SAVE ASSISTANT MESSAGE
