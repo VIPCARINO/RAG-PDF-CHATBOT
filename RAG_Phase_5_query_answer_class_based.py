@@ -94,7 +94,7 @@ class LocalRAGPipeline:
 
         #text = response["message"]["content"]
         prompt = f"""
-                    Generate 10 semantic search queries for document retrieval.
+                    Generate 2 semantic search queries for document retrieval.
 
                     Rules:
                     - Focus on likely document terminology
@@ -282,11 +282,10 @@ class LocalRAGPipeline:
                         messages=[{"role": "user", "content": prompt}]
                     )
             text = response.choices[0].message.content
+            return text
         except:
             response = "FREE API TOKEN EXCEEDED... "
             return response
-
-        return result
     
     def ask_llm_stream(self, context, question, model="llama3.2"):
 
