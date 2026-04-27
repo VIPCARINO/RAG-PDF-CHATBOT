@@ -241,7 +241,6 @@ class LocalRAGPipeline:
 
         #            RULES:
         #            - Use ONLY the context or previous conversation below
-        #            - If answer is not found, say "Not found in document"
         #            - You must always cite chunks clearly like ( from Title: [TITLE], pg. [x])
         #            - If you are asked a question about the book you can get it from the context and answer
         #            - May sure to use markdown when necessary
@@ -265,7 +264,6 @@ class LocalRAGPipeline:
 
                     RULES:
                     - Use ONLY the context or previous conversation below
-                    - If answer is not found, say "Not found in document"
                     - You must always cite chunks clearly like ( from Title: [TITLE], pg. [x])
                     - If you are asked a question about the book you can get it from the context and answer
                     - May sure to use markdown when necessary
