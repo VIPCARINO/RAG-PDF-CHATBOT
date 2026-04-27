@@ -568,7 +568,7 @@ if st.session_state.pdf_ready:
         # =================================================
         st.session_state.messages.append({
             "role": "assistant",
-            "content": full_response
+            "content": stream # full_response
             #"role": answer, # No Streaming
         })
 
