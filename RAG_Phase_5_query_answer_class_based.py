@@ -3,7 +3,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from rank_bm25 import BM25Okapi
 from ollama import chat
 import tiktoken
-from google import genai
+from groq import Groq
 
 
 class LocalRAGPipeline:
@@ -34,7 +34,7 @@ class LocalRAGPipeline:
         # =====================================================
         self.client = chromadb.PersistentClient(path=db_path)
         self.collection = self.client.get_collection(collection_name)
-        self.clients = genai.Client(api_key=api_key)
+        self.clients = Groq(api_key=api_key)
 
         # =====================================================
         # TOKENIZER
