@@ -14,7 +14,7 @@ from RAG_Phase_5_query_answer_class_based import LocalRAGPipeline
 def load_rag(doc_id, api_key):
     return LocalRAGPipeline(
         collection_name="pdf_rag",
-        doc_id=doc_id,
+        doc_id=st.session_state.doc_id,
         api_key=api_key
     )
 
@@ -525,7 +525,6 @@ if st.session_state.pdf_ready:
             # LOAD RAG
             # ---------------------------------------------
             #rag = LocalRAGPipeline(
-            #    api_key=api_key,
             #    collection_name="pdf_rag",
             #    doc_id=st.session_state.doc_id
             #)
