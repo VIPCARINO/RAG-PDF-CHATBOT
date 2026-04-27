@@ -94,7 +94,7 @@ class LocalRAGPipeline:
 
         #text = response["message"]["content"]
         prompt = f"""
-                    Generate 5 semantic search queries for document retrieval.
+                    Generate 10 semantic search queries for document retrieval.
 
                     Rules:
                     - Focus on likely document terminology
@@ -336,7 +336,7 @@ class LocalRAGPipeline:
 
         for q in queries:
 
-            results = self.semantic_search(q, top_k=80)
+            results = self.semantic_search(q, top_k=100)
             all_blocks.extend(self.format_blocks(results))
 
         # =====================================================
@@ -394,7 +394,7 @@ class LocalRAGPipeline:
         # =====================================================
         # KEEP MOST RELEVANT CHUNKS
         # =====================================================
-        #top_chunks = reranked[:80]
+        #top_chunks = reranked[:90]
 
         # =====================================================
         # RESTORE NATURAL DOCUMENT ORDER
@@ -410,7 +410,7 @@ class LocalRAGPipeline:
 
         # 5. TOKEN SAFETY CHECK
         if self.count_tokens(context) > self.max_tokens:
-            context = self.build_formatted_context(reranked[:40])
+            context = self.build_formatted_context(reranked[:60])
 
         # 6. FINAL ANSWER
         return self.ask_llm(context, query)
