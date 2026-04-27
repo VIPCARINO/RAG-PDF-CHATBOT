@@ -6,7 +6,7 @@ class ChromaIndexer:
 
     def __init__(
         self,
-        db_path="./database/chroma_db",
+        db_path="/tmp/chroma_db",
         collection_name="pdf_rag",
         status_callback=None,
         doc_id=None,
